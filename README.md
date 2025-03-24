@@ -30,7 +30,7 @@ These datasets can be used for:
 - **Reporting**: Generating reports and dashboards for stakeholders.
 
 ## Data Sources
-The data in these datasets is sourced from reputable global health organizations and government agencies. Specific sources include:
+The data in these datasets is sourced from Alex The Analyst Github. Specific sources include:
 - [AlexTheAnalyst](https://github.com/AlexTheAnalyst/PortfolioProjects/tree/main)
 
 ## License
