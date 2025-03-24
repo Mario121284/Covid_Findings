@@ -1,0 +1,150 @@
+/*
+Covid 19 Data Exploration 
+
+Skills used: Joins, CTE's, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+
+*/ 
+
+-- All data in deaths table
+
+Select *
+From `covid-454017.covid_deaths.covid_deaths`
+Where continent is not null 
+order by 3,4;
+
+-- All data in vaccinations table
+
+Select *
+From `covid-454017.covid_vaccinations.covid_vaccinations`
+Where continent is not null 
+order by 3,4;
+
+-- Select Data that we are going to be starting with
+SELECT Location, date, total_cases, new_cases, total_deaths, population
+FROM `covid-454017.covid_deaths.covid_deaths`
+WHERE continent IS NOT NULL 
+ORDER BY 1, 2;
+
+-- Total Cases vs Total Deaths in the United States
+SELECT Location, date, total_cases, total_deaths, (total_deaths / total_cases) * 100 AS DeathPercentage
+FROM `covid-454017.covid_deaths.covid_deaths`
+WHERE location LIKE '%States%'
+AND continent IS NOT NULL 
+ORDER BY 1, 2;
+
+-- Total Cases vs Population
+-- Shows what percentage of population infected with Covid
+SELECT Location, date, Population, total_cases, (total_cases / population) * 100 AS PercentPopulationInfected
+FROM `covid-454017.covid_deaths.covid_deaths`
+ORDER BY 1, 2;
+
+-- Looking at Total Cases vs Population 
+SELECT 
+    Location, 
+    date, 
+    Population, 
+    total_cases, 
+    (CAST(total_cases AS FLOAT64) / CAST(Population AS FLOAT64)) * 100 AS PercentPopulationInfected
+FROM 
+    `covid-454017.covid_deaths.covid_deaths`
+WHERE 
+    location LIKE '%States%'
+ORDER BY 
+    1, 2;
+
+-- What is the total number of COVID-19 deaths and vaccinations per country?
+SELECT
+SUM(total_deaths) AS total_deaths,
+SUM(total_vaccinations) AS total_vaccinations,
+dea.location
+FROM `covid-454017.covid_deaths.covid_deaths` AS dea
+INNER JOIN
+  `covid-454017.covid_vaccinations.covid_vaccinations` AS vac
+ON dea.location = vac.location
+GROUP BY dea.location;
+
+-- What is the maximum, minimum, and average number of COVID-19 deaths and vaccinations per country?
+SELECT
+dea.location AS country,
+MAX(total_deaths) AS max_deaths,
+MIN(total_deaths) AS min_deaths,
+AVG(total_deaths) AS avg_deaths,
+MAX(total_vaccinations) AS max_vaccinations,
+MIN(total_vaccinations) AS min_vaccinations,
+AVG(total_vaccinations) AS avg_vaccinations
+FROM 
+  `covid-454017.covid_deaths.covid_deaths` AS dea
+INNER JOIN
+  `covid-454017.covid_vaccinations.covid_vaccinations` AS vac
+ON 
+  dea.location = vac.location
+GROUP BY 
+  dea.location;
+
+-- What is the total number of COVID-19 cases and deaths for each continent, and how does the average number of cases per country compare across continents?
+
+WITH deaths AS (
+  SELECT 
+    continent,
+    SUM(total_deaths) AS total_deaths
+  FROM 
+  `covid-454017.covid_deaths.covid_deaths`
+  GROUP BY continent
+),
+
+vaccinations AS (
+  SELECT 
+    continent,
+    SUM(total_vaccinations) AS total_vaccinations
+  FROM
+    `covid-454017.covid_vaccinations.covid_vaccinations`
+  GROUP BY
+    continent
+),
+
+cases AS (
+  SELECT
+    continent,
+    SUM(total_cases) AS total_cases,
+    COUNT(DISTINCT(location)) AS country_count
+  FROM
+  `covid-454017.covid_deaths.covid_deaths`
+  GROUP BY continent
+)
+
+SELECT 
+  v.continent,
+  v.total_vaccinations,
+  d.total_deaths,
+  c.total_cases,
+  c.total_cases / c.country_count AS avg_cases_per_country
+FROM vaccinations AS v
+INNER JOIN
+  deaths AS d
+USING (continent)
+INNER JOIN
+cases AS c  
+USING (continent)
+ORDER BY 
+  avg_cases_per_country DESC;
+-- Create a view that shows the total deaths per country.
+
+CREATE VIEW `covid-454017.covid_deaths.total_deaths_per_continent` AS
+SELECT 
+    continent,
+    SUM(total_deaths) AS total_deaths
+FROM 
+    `covid-454017.covid_deaths.covid_deaths`
+GROUP BY 
+    continent;
+
+-- Rank the country with the most deaths
+SELECT
+SUM(total_deaths) AS total_deaths,
+location AS country,
+DENSE_RANK() OVER (ORDER BY SUM(total_deaths)) AS rank_of_total_deaths
+FROM `covid-454017.covid_deaths.covid_deaths`
+WHERE total_deaths IS NOT NULL
+GROUP BY
+  location
+ORDER BY rank_of_total_deaths
