@@ -139,12 +139,17 @@ GROUP BY
     continent;
 
 -- Rank the country with the most deaths
-SELECT
-SUM(total_deaths) AS total_deaths,
-location AS country,
-DENSE_RANK() OVER (ORDER BY SUM(total_deaths)) AS rank_of_total_deaths
-FROM `covid-454017.covid_deaths.covid_deaths`
-WHERE total_deaths IS NOT NULL
-GROUP BY
-  location
-ORDER BY rank_of_total_deaths
+WITH ranked_deaths AS (
+  SELECT
+    SUM(total_deaths) AS total_deaths,
+    location AS country,
+    DENSE_RANK() OVER (ORDER BY SUM(total_deaths) DESC) AS rank_of_total_deaths
+  FROM `covid-454017.covid_deaths.covid_deaths`
+  WHERE total_deaths IS NOT NULL
+  AND location != "World"  
+  GROUP BY location
+)
+
+SELECT *
+FROM ranked_deaths
+ORDER BY rank_of_total_deaths;  
