@@ -31,9 +31,7 @@ These datasets can be used for:
 
 ## Data Sources
 The data in these datasets is sourced from reputable global health organizations and government agencies. Specific sources include:
-- [World Health Organization (WHO)](https://www.who.int/)
-- [Our World in Data](https://ourworldindata.org/)
-- [Johns Hopkins University COVID-19 Dashboard](https://coronavirus.jhu.edu/map.html)
+- [AlexTheAnalyst](https://github.com/AlexTheAnalyst/PortfolioProjects/tree/main)
 
 ## License
 This dataset is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You are free to share and adapt the data, provided you give appropriate credit.
@@ -46,5 +44,5 @@ We welcome contributions to improve these datasets. If you have suggestions or w
 
 ## Contact Information
 For questions or feedback, please contact:
-- **Email**: luisc121203@gmail.com(mailto:your-email@example.com)
+- **Email**: luisc121203@gmail.com
 - **GitHub Issues**: [Open an issue](https://github.com/your-repo/issues)
