@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> COVID-19 Datasets Overview </title>
+    <title>COVID-19 Datasets Documentation</title>
 </head>
 <body>
     <h1>COVID-19 Datasets Overview</h1>
