@@ -146,8 +146,8 @@ WITH ranked_deaths AS (
     DENSE_RANK() OVER (ORDER BY SUM(total_deaths) DESC) AS rank_of_total_deaths
   FROM `covid-454017.covid_deaths.covid_deaths`
   WHERE total_deaths IS NOT NULL
-  AND location != "World"  
-  GROUP BY location
+  AND location != continent
+  GROUP BY continent, location
 )
 
 SELECT *
