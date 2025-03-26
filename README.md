@@ -9,13 +9,37 @@ This repository contains two essential datasets related to the COVID-19 pandemic
 The `covid_deaths` dataset contains detailed records of COVID-19-related fatalities. Key features include:
 - **Geographical breakdown**: Data is organized by country and continent.
 - **Time period**: Covers the years 2021 to 2022.
-- **Metrics**: Includes total deaths, daily deaths, and death rates per population.
+- **Metrics**: Includes total cases, daily cases, total deaths, daily deaths, and death rates per population.
 
 ### `covid_vaccinations` Dataset
 The `covid_vaccinations` dataset provides insights into global vaccination efforts. Key features include:
 - **Geographical breakdown**: Data is organized by country and continent.
 - **Time period**: Covers the years 2021 to 2022.
 - **Metrics**: Includes total vaccinations, daily vaccinations, and vaccination rates per population.
+
+## Tools and Technologies
+The project utilized the following tools and technologies:
+- **Google BigQuery**: Used for SQL data exploration, manipulation, and analysis.
+- **Tableau**: Used for creating a variety of visualizations and interactive dashboards based on SQL query findings.
+
+## Dashboard Components
+A comprehensive Tableau dashboard was created to visualize key insights and trends related to COVID-19, including total cases, deaths, vaccinations, and their distribution across countries and regions. The dashboard includes the following components:
+
+### **Key Performance Indicators (KPIs):**
+- Total cases recorded
+- Total deaths recorded
+- Total vaccine doses administered
+
+### **Text Chart:**
+- Total cases and deaths by country/region
+
+### **Symbol Map:**
+- Population percentage who died due to COVID-19
+
+### **Area Graphs:**
+- COVID cases reported over time by continent
+- COVID-related deaths over time by continent
+- Vaccines administered over time by continent
 
 ## Relevance to Healthcare
 These datasets are critical for:
@@ -45,3 +69,4 @@ We welcome contributions to improve these datasets. If you have suggestions or w
 ## Contact Information
 For questions or feedback, please contact:
 - **Email**: luisc121203@gmail.com
+
