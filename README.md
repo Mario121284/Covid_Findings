@@ -1,72 +1,108 @@
-# COVID-19 Datasets: `covid_deaths` and `covid_vaccinations`
+# 🦠 COVID-19 Data Analysis: Deaths & Vaccinations Dashboard
 
-## Introduction
-This repository contains two essential datasets related to the COVID-19 pandemic: `covid_deaths` and `covid_vaccinations`. These datasets provide detailed information on COVID-19 fatalities and vaccination efforts globally, organized by country and continent, covering the period from 2021 to 2022. These datasets are invaluable for understanding the spread of COVID-19 and the progress of global vaccination campaigns, supporting decision-making in healthcare and policy development.
+This repository showcases a comprehensive data analytics project using two key COVID-19 datasets: `covid_deaths` and `covid_vaccinations`. The project explores pandemic trends globally from 2021 to 2022, leveraging Excel, SQL (via Google BigQuery), and Tableau to reveal insights that support healthcare monitoring and policy-making.
 
-## Dataset Descriptions
+---
 
-### `covid_deaths` Dataset
-The `covid_deaths` dataset contains detailed records of COVID-19-related fatalities. Key features include:
-- **Geographical breakdown**: Data is organized by country and continent.
-- **Time period**: Covers the years 2021 to 2022.
-- **Metrics**: Includes total cases, daily cases, total deaths, daily deaths, and death rates per population.
+## 📂 Datasets Overview
 
-### `covid_vaccinations` Dataset
-The `covid_vaccinations` dataset provides insights into global vaccination efforts. Key features include:
-- **Geographical breakdown**: Data is organized by country and continent.
-- **Time period**: Covers the years 2021 to 2022.
-- **Metrics**: Includes total vaccinations, daily vaccinations, and vaccination rates per population.
+### `covid_deaths`
+This dataset records COVID-19-related fatalities with a geographic and temporal lens.  
+**Key Metrics**:
+- Total and daily COVID-19 cases  
+- Total and daily deaths  
+- Deaths per population  
+- Organized by **country**, **continent**, and **date**
 
-## Tools and Technologies
-The project utilized the following tools and technologies:
-- **Google BigQuery**: Used for SQL data exploration, manipulation, and analysis.
-- **Tableau**: Used for creating a variety of visualizations and interactive dashboards based on SQL query findings.
+### `covid_vaccinations`
+This dataset provides vaccination data across countries and continents.  
+**Key Metrics**:
+- Total vaccinations  
+- Daily vaccinations  
+- Vaccinations per population  
+- Includes vaccine type and source notes
 
-## Dashboard Components
-A comprehensive Tableau dashboard was created to visualize key insights and trends related to COVID-19, including total cases, deaths, vaccinations, and their distribution across countries and regions. The dashboard includes the following components:
+📅 **Time Period Covered**: 2021–2022  
+🌍 **Geographic Scope**: Global (by country and continent)  
+📊 **Source**: [Alex The Analyst GitHub](https://github.com/AlexTheAnalyst/PortfolioProjects/tree/main)
 
-### **Key Performance Indicators (KPIs):**
-- Total cases recorded
-- Total deaths recorded
-- Total vaccine doses administered
+---
 
-### **Text Chart:**
-- Total cases and deaths by country/region
+## 🛠️ Tools and Technologies Used
 
-### **Symbol Map:**
-- Population percentage who died due to COVID-19
+- **Excel**: Data cleaning (e.g., `PROPER`, `TRIM`, `IF`, de-duplication)  
+- **SQL (Google BigQuery)**: Querying, filtering, aggregations, joins, and window functions  
+- **Tableau**: Interactive dashboards, KPIs, maps, area graphs, and timelines
 
-### **Area Graphs:**
-- COVID cases reported over time by continent
-- COVID-related deaths over time by continent
-- Vaccines administered over time by continent
+---
 
-## Relevance to Healthcare
-These datasets are critical for:
-- **Monitoring the pandemic**: Tracking the spread of COVID-19 and the effectiveness of vaccination campaigns.
-- **Informing policy decisions**: Supporting governments and healthcare organizations in making data-driven decisions.
-- **Research and analysis**: Enabling researchers to study the impact of COVID-19 and vaccination efforts globally.
+## 📈 Tableau Dashboard Components
 
-## Usage
-These datasets can be used for:
-- **Data analysis**: Conducting statistical and trend analyses.
-- **Visualization**: Creating charts, graphs, and maps to represent the data.
-- **Reporting**: Generating reports and dashboards for stakeholders.
+A dynamic Tableau workbook (`Covid-19 Dashboard Luis Carabajo.twbx`) visualizes major metrics and time-based patterns.  
 
-## Data Sources
-The data in these datasets is sourced from Alex The Analyst Github. Specific sources include:
-- [AlexTheAnalyst](https://github.com/AlexTheAnalyst/PortfolioProjects/tree/main)
+**Dashboard Highlights**:
+- **KPI Cards**: Total cases, total deaths, total vaccinations  
+- **Text Chart**: Country/region totals  
+- **Symbol Map**: % of population that died per country  
+- **Area Graphs**:
+  - COVID cases over time by continent  
+  - Deaths over time by continent  
+  - Vaccinations over time by continent
 
-## License
-This dataset is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You are free to share and adapt the data, provided you give appropriate credit.
+📸 *Preview Available*: `Covid-19 Dashboard Screenshot.png`
 
-## Contributing
-We welcome contributions to improve these datasets. If you have suggestions or would like to report issues, please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your changes.
-3. Submit a pull request with a detailed description of your changes.
+---
 
-## Contact Information
-For questions or feedback, please contact:
-- **Email**: luisc121203@gmail.com
+## 🧠 Insights and Purpose
 
+This project answers essential questions such as:
+- Which regions experienced the highest death rates?
+- How effective were global vaccination efforts over time?
+- Are there correlations between cases, deaths, and vaccinations across continents?
+
+It demonstrates the use of synthetic COVID data to simulate **real-world healthcare reporting**, guiding:
+- Public health responses  
+- Government policy  
+- Academic research
+- 
+---
+
+## 📌 Relevance to Healthcare Analytics
+
+These datasets provide a strong foundation for:
+- **Pandemic trend monitoring**  
+- **Vaccine effectiveness evaluation**  
+- **Healthcare system readiness analysis**
+
+This kind of data-driven insight is vital for **decision-makers, data analysts, and researchers** in the healthcare sector.
+
+---
+
+## 🔓 License
+
+This dataset is distributed under the  
+[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).  
+Feel free to use, adapt, and redistribute with proper credit.
+
+---
+
+## 🤝 Contributing
+
+Have suggestions or improvements?
+
+1. Fork the repository  
+2. Make your changes in a new branch  
+3. Submit a pull request with a detailed description
+
+---
+
+## 📬 Contact
+
+- **👤 Author**: Luis Carabajo  
+- **📧 Email**: luisc121203@gmail.com  
+- **🔗 LinkedIn**: [Luis Carabajo](https://www.linkedin.com/in/luis-carabajo-a5449b250/)  
+- **💻 GitHub**: [Mario121284](https://github.com/Mario121284)
+
+---
+
+*This project was built as a personal portfolio piece to demonstrate my data cleaning, analysis, and visualization skills in a real-world context.*
